@@ -5,8 +5,8 @@ one item at a time, using the ACCUMULATOR pattern.
         sequences, namely by MUTATING their elements.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Alex Mazany.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -29,7 +29,7 @@ def main():
 def run_test_make_simple_list():
     """ Tests the   make_simple_list    function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # Done: 2. Implement this TEST function.
     #   It TESTS the  make_simple_list  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -47,7 +47,16 @@ def run_test_make_simple_list():
     print('Actual:  ', actual)
 
     # Test 2 (add your test here):
+    expected = [0, 1]
+    actual = make_simple_list(0, 1)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
+    #Test 3
+    expected = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0]
+    actual = make_simple_list(-10, 0)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 def make_simple_list(m, n):
     """
@@ -67,8 +76,14 @@ def make_simple_list(m, n):
       :type m: int
       :type n: int
     """
+
+    list =[]
+    for k in range((n - m) + 1):
+        list += [k + m]
+    return list
+
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
 
@@ -87,6 +102,17 @@ def run_test_make_simple_string():
     print('Testing the   make_simple_string   function:')
     print('--------------------------------------------------')
 
+    # Test 1
+    expected = '0-1-2-3-4-'
+    actual = make_simple_string(0, 4)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    #Test 2
+    expected = '-10--9--8--7--6--5--4--3--2--1-0-'
+    actual = make_simple_string(-10, 0)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 def make_simple_string(m, n):
     """
@@ -108,6 +134,12 @@ def make_simple_string(m, n):
       :type m: int
       :type n: int
     """
+
+    stringulator = ''
+    for k in range(m, n + 1, 1):
+        stringulator += str(k) + '-'
+    return stringulator
+
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
