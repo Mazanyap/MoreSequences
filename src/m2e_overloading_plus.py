@@ -28,6 +28,7 @@ def main():
     # Fourth example below: stitches together the four strings.
     # Fifth example: contrasts concatenation with addition.
     # ------------------------------------------------------------------
+
     print()
     print('-----------------------------------------------------------')
     print('Addition, then various forms of concatenation:')
