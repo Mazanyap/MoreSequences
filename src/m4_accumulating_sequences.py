@@ -18,12 +18,13 @@ def main():
     run_test_make_less_simple_string()
 
     # ------------------------------------------------------------------
-    # TODO: 8. Uncomment the tests below before working TO DO 9.
+    # Done: 8. Uncomment the tests below before working TO DO 9.
     #   They launch annoying rg.RoseWindows on each run that you don't want
     #   until you get to TO DO 9 and 10.
     # ------------------------------------------------------------------
-    # run_test_draw_shapes()
-    # run_test_rectangles_from_circles()
+
+    run_test_draw_shapes()
+    run_test_rectangles_from_circles()
 
 
 def run_test_make_simple_list():
@@ -91,7 +92,7 @@ def make_simple_list(m, n):
 def run_test_make_simple_string():
     """ Tests the   make_simple_string    function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # Done: 4. Implement this TEST function.
     #   It TESTS the  make_simple_string  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -141,7 +142,7 @@ def make_simple_string(m, n):
     return stringulator
 
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
 
@@ -149,7 +150,7 @@ def make_simple_string(m, n):
 def run_test_make_less_simple_string():
     """ Tests the   make_less_simple_string    function. """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # Done: 6. Implement this TEST function.
     #   It TESTS the  make_less_simple_string  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -159,6 +160,18 @@ def run_test_make_less_simple_string():
     print('--------------------------------------------------')
     print('Testing the   make_less_simple_string   function:')
     print('--------------------------------------------------')
+
+    # Test 1
+    expected = '5-6-7-8-9-10-11-12-13'
+    actual = make_less_simple_string(5, 13)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 1
+    expected = '1-2-3-4'
+    actual = make_less_simple_string(1, 4)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
 
 
 def make_less_simple_string(m, n):
@@ -183,8 +196,15 @@ def make_less_simple_string(m, n):
       :type m: int
       :type n: int
     """
+
+    stringulator = ''
+    for k in range(m, n):
+        stringulator += str(k) + '-'
+    stringulator += str(n)
+    return stringulator
+
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -----------------------------------------------------------------
 
@@ -266,8 +286,13 @@ def draw_shapes(shapes, window):
       :type shapes:  list[rg._Shape] or tuple[rg._Shape]
       :type window:  rg.RoseWindow
     """
+
+    for k in range(len(shapes)):
+        shapes[k].attach_to(window)
+    window.render(.3)
+
     # ------------------------------------------------------------------
-    # TODO: 9. Implement and test this function. Make sure you do TO DO 8 in main first!
+    # Done: 9. Implement and test this function. Make sure you do TO DO 8 in main first!
     #     The testing code is already written for you (that you just enabled in TO DO 8).
     #
     ####################################################################
@@ -377,8 +402,14 @@ def rectangles_from_circles(circles):
       :type circles:  list of rg.Circle or tuple of rg.Circle
       :rtype: list of rg.Rectangles
     """
+
+    rectangles = []
+    for k in range(len(circles)):
+        rectangles += [rg.Square(circles[k].center, circles[k].radius * 2)]
+    return rectangles
+
     # ------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    # Done: 10. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
